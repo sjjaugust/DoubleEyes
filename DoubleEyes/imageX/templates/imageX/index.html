@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="{% static 'twts_149_creativeagency/css/style.css' %}" />
-
+	<link type="text/css" rel="stylesheet" href="{% static 'twts_149_creativeagency/css/index.css' %}" />
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -131,38 +131,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
 				</div>
 				<!-- /Section header -->
 
+
+
 				<!-- about -->
 				<div class="col-md-4">
 					<div class="about">
 						<i class="fa fa-cogs"></i>
-						<h3>Fully Customizible</h3>
+						<h3>Upload Double PIC</h3>
 						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
-						<a href="#">Read more</a>
+						<a href="javascript:submit_upload()">uplad img</a>
+						<input type="file" name="file" accept="image/*" id="upload" >
 					</div>
 				</div>
-				<!-- /about -->
 
-				<!-- about -->
-				<div class="col-md-4">
-					<div class="about">
-						<i class="fa fa-magic"></i>
-						<h3>Awesome Features</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
-						<a href="#">Read more</a>
-					</div>
-				</div>
-				<!-- /about -->
+				<div class="content-img-list">
+					<div class="col-md-4 col-xs-6 work">
+						<img class="img-responsive" src="{% static 'twts_149_creativeagency/img/work1.jpg' %}" alt="">
+						<div class="overlay"></div>
+						<div class="work-content">
+							<span>Category</span>
+							<h3>Lorem ipsum dolor</h3>
+							<div class="work-link">
 
-				<!-- about -->
-				<div class="col-md-4">
-					<div class="about">
-						<i class="fa fa-mobile"></i>
-						<h3>Fully Responsive</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
-						<a href="#">Read more</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 col-xs-6 work">
+						<img class="img-responsive" src="{% static 'twts_149_creativeagency/img/work1.jpg' %}" alt="">
+						<div class="overlay"></div>
+						<div class="work-content">
+							<span>Category</span>
+							<h3>Lorem ipsum dolor</h3>
+							<div class="work-link">
+								<a href="#"><i class="fa fa-external-link"></i></a>
+								<a class="lightbox" href="{% static 'twts_149_creativeagency/img/work1.jpg' %}"><i class="fa fa-search"></i></a>
+							</div>
+						</div>
 					</div>
 				</div>
-				<!-- /about -->
 
 			</div>
 			<!-- /Row -->
@@ -955,6 +962,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<script type="text/javascript" src="{% static 'twts_149_creativeagency/js/owl.carousel.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'twts_149_creativeagency/js/jquery.magnific-popup.js' %}"></script>
 	<script type="text/javascript" src="{% static 'twts_149_creativeagency/js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'twts_149_creativeagency/js/index.js' %}"></script>
 
 </body>
 </html>
