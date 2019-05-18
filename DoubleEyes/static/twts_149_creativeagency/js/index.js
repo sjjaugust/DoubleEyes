@@ -75,13 +75,25 @@ function submit_upload(){
          dataType:'json',
 
          success: function (data) {
-             alert('上传成功！');
+             //alert('上传成功！');
+             console.log("Done, Picture Uploaded.");
+             // 显示矫正后图片
+             rectifyShow();
             },
          error: function (data) {
              alert("上传失败");
          }
      })
 }
+// 矫正后图片显示
+function rectifyShow(){
+    // 这里使用的是绝对路径 可能外部引用的js无法被django渲染
+    var pic_0 = "/static/imageX/media/rectify_0.png";
+    var pic_1 = "/static/imageX/media/rectify_1.png";
+    $('#img_rectify_0').html("<img src='"+ pic_0 + "?v=" + Math.random() + "'>");
+    $('#img_rectify_1').html("<img src='"+ pic_1 + "?v=" + Math.random() + "'>");
+}
+
 //删除
 function removeImg(obj, index) {
 	imgSrc.splice(index, 1);
