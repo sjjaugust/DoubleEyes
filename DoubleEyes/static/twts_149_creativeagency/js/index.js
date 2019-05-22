@@ -94,6 +94,20 @@ function rectifyShow(){
     $('#img_rectify_1').html("<img src='"+ pic_1 + "?v=" + Math.random() + "'>");
 }
 
+// 立体匹配显示
+function fourStickman(){
+    var census = "/static/imageX/media/dispCencus.png";
+    var rank = "/static/imageX/media/dispCencus.png";
+    var sad = "/static/imageX/media/dispCencus.png";
+    var ssd = "/static/imageX/media/dispCencus.png";
+
+    $('#dispCensus').html("<img src='"+ census + "?v=" + Math.random() + "'>");
+    $('#dispSAD').html("<img src='"+ sad + "?v=" + Math.random() + "'>");
+    $('#dispSSD').html("<img src='"+ ssd + "?v=" + Math.random() + "'>");
+    $('#dispRank').html("<img src='"+ rank + "?v=" + Math.random() + "'>");
+
+}
+
 //删除
 function removeImg(obj, index) {
 	imgSrc.splice(index, 1);
