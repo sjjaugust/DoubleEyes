@@ -4,14 +4,12 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
-
-from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 
-from .utils.rectify import rectify # 矫正函数
+from .utils.rectify import rectify              # 矫正函数
 from .utils.fourStickman import four_stickman   # 立体匹配函数
+from .utils.SGBM import SGBM_update             # SGBM 半全局算法
 import json
-import re
 import os
 
 
@@ -53,11 +51,26 @@ def uploadimg(request):
         rec_1_path = os.path.join(settings.IMG_URL, rec_1_name)
         rectify(pic_0_path, pic_1_path, rec_0_path, rec_1_path)
 
-        four_stickman()
         context = {'success': 1}
         return HttpResponse(json.dumps(context), content_type="application/json")
     else:
         return HttpResponse('500 no')
+
+
+@csrf_exempt
+def matching(request):
+    four_stickman()
+
+    # 矫正图片
+    rec_0_name, rec_1_name = 'rectify_0.png', 'rectify_1.png'
+    out_name = "dispSGBM.png"
+    rec_0_path = os.path.join(settings.IMG_URL, rec_0_name)
+    rec_1_path = os.path.join(settings.IMG_URL, rec_1_name)
+    out_path = os.path.join(settings.IMG_URL, out_name)
+    SGBM_update(rec_0_path, rec_1_path, out_path)
+    context = {'success': 1}
+    return HttpResponse(json.dumps(context), content_type="application/json")
+
 
 
 

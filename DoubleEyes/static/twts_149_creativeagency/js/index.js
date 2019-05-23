@@ -96,15 +96,35 @@ function rectifyShow(){
 
 // 立体匹配显示
 function fourStickman(){
-    var census = "/static/imageX/media/dispCencus.png";
-    var rank = "/static/imageX/media/dispCencus.png";
-    var sad = "/static/imageX/media/dispCencus.png";
-    var ssd = "/static/imageX/media/dispCencus.png";
 
-    $('#dispCensus').html("<img src='"+ census + "?v=" + Math.random() + "'>");
-    $('#dispSAD').html("<img src='"+ sad + "?v=" + Math.random() + "'>");
-    $('#dispSSD').html("<img src='"+ ssd + "?v=" + Math.random() + "'>");
-    $('#dispRank').html("<img src='"+ rank + "?v=" + Math.random() + "'>");
+    $.ajax({
+         url: 'http://127.0.0.1:8000/imageX/matching/',
+         type: 'POST',
+         async: true,
+         cache: false,
+         contentType: false,
+         processData: false,
+         // traditional:true,
+         dataType:'json',
+
+         success: function (data) {
+            var census = "/static/imageX/media/dispCensus.png";
+            var rank = "/static/imageX/media/dispRank.png";
+            var sad = "/static/imageX/media/dispSAD.png";
+            var ssd = "/static/imageX/media/dispSSD.png";
+            var sgbm = "/static/imageX/media/dispSGBM.png";
+
+            $('#dispCensus').html("<img src='"+ census + "?v=" + Math.random() + "'>");
+            $('#dispSAD').html("<img src='"+ sad + "?v=" + Math.random() + "'>");
+            $('#dispSSD').html("<img src='"+ ssd + "?v=" + Math.random() + "'>");
+            $('#dispRank').html("<img src='"+ rank + "?v=" + Math.random() + "'>");
+            $('#dispSGBM').html("<img src='"+ sgbm + "?v=" + Math.random() + "'>");
+           },
+         error: function (data) {
+             alert("上传失败");
+         }
+     })
+
 
 }
 

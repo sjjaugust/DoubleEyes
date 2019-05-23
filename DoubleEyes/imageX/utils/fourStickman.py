@@ -18,5 +18,7 @@ def four_stickman():
     img_l = c_char_p(bytes(rectify_0_path, 'utf-8'))
     img_r = c_char_p(bytes(rectify_1_path, 'utf-8'))
     out = c_char_p(bytes(out_path, 'utf-8'))
-    DoubleEye.FourStickman(img_l, img_r, out)
-    return 1
+    number = c_int(0)
+    number = DoubleEye.FourStickman(img_l, img_r, out)
+    print(number)
+    return number
